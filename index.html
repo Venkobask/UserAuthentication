@@ -1,0 +1,107 @@
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input {
+      width: 80%;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 40%;
+      margin: 10px;
+      padding: 10px;
+      border: none;
+      background-color: #00a0d2;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Geek Store</h1>
+    <div id="message"></div>
+    <form id="register-form">
+      <input type="text" id="name" name="name" placeholder="Name" required>
+      <input type="email" id="email" name="email" placeholder="Email" required>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+      <button type="submit" id="register-button">Register</button>
+    </form>
+    <form id="login-form">
+      <input type="email" id="login-email" name="email" placeholder="Email" required>
+      <input type="password" id="login-password" name="password" placeholder="Password" required>
+      <button type="submit" id="login-button">Login</button>
+    </form>
+    <form id="forgot-password-form">
+      <input type="email" id="forgot-email" name="email" placeholder="Email" required>
+      <button type="submit" id="forgot-button">Forgot Password</button>
+    </form>
+    <form id="reset-password-form">
+      <input type="hidden" id="reset-token" name="token">
+      <input type="password" id="reset-password" name="password" placeholder="New Password" required>
+      <button type="submit" id="reset-button">Reset Password</button>
+    </form>
+  </div>
+
+  <script>
+
+    // Get the form elements
+    const registerForm = document.getElementById("register-form");
+    const loginForm = document.getElementById("login-form");
+    const forgotPasswordForm = document.getElementById("forgot-password-form");
+    const resetPasswordForm = document.getElementById("reset-password-form");
+
+    // Get the message element
+    const message = document.getElementById("message");
+
+    // Define the API endpoints
+    const registerUrl = "https://geek-store.onrender.com/user/register";
+    const loginUrl = "https://geek-store.onrender.com/user/login";
+    const forgotPasswordUrl = "https://geek-store.onrender.com/user/forgot-password";
+    const resetPasswordUrl = "https://geek-store.onrender.com/user/reset-password";
+
+    // Define a function to show an error message
+    function showError(error) {
+      message.innerHTML = `<p class='error'>${error}</p>`;
+    }
+
+    // Define a function to show a success message
+    function showSuccess(success) {
+      message.innerHTML = `<p class='success'>${success}</p>`;
+    }
+
+</script>
+</body>
