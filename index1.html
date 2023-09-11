@@ -1,0 +1,65 @@
+<html>
+<head>
+  <style>
+    .card {
+      width: 300px;
+      height: 200px;
+      border: 1px solid black;
+      margin: 10px;
+      padding: 10px;
+    }
+    .card input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .card button {
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h3>Enter your details</h3>
+    <input type="text" id="name" placeholder="Name">
+    <input type="tel" id="phone" placeholder="Phone number">
+    <input type="text" id="village" placeholder="Village">
+    <input type="text" id="city" placeholder="City">
+    <button id="save">Save</button>
+  </div>
+  <script>
+    // Get the input elements
+    var name = document.getElementById("name");
+    var phone = document.getElementById("phone");
+    var village = document.getElementById("village");
+    var city = document.getElementById("city");
+
+    // Get the save button
+    var save = document.getElementById("save");
+
+    // Add a click event listener to the save button
+    save.addEventListener("click", function() {
+      // Get the values from the input elements
+      var nameValue = name.value;
+      var phoneValue = phone.value;
+      var villageValue = village.value;
+      var cityValue = city.value;
+
+      // Check if the values are not empty
+      if (nameValue && phoneValue && villageValue && cityValue) {
+        // Store the values in local storage
+        localStorage.setItem("name", nameValue);
+        localStorage.setItem("phone", phoneValue);
+        localStorage.setItem("village", villageValue);
+        localStorage.setItem("city", cityValue);
+
+        // Display a success message
+        alert("Your details have been saved!");
+      } else {
+        // Display an error message
+        alert("Please enter all the details!");
+      }
+    });
+  </script>
+</body>
+</html>
